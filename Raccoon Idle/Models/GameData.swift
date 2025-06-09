@@ -10,7 +10,7 @@ import SpriteKit
 import Combine
 
 enum GameCharacter: String {
-    case ManagerRaccom, Raccoon, Mouse
+    case ManagerRaccoon, Raccoon, Mouse
 
     var string: String {
         self.rawValue
@@ -18,7 +18,7 @@ enum GameCharacter: String {
     
     var textureName: String {
         switch self {
-            case .ManagerRaccom:
+            case .ManagerRaccoon:
                 return "Raccoon"
             default:
                 return self.string

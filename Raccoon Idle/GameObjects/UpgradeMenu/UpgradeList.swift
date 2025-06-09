@@ -73,7 +73,7 @@ class UpgradeList: Sprite {
             return
         }
         
-        guard let parent = self.parent as? UpgradeMenu else {
+        guard let _ = self.parent as? UpgradeMenu else {
             print("Warn: Upgrade List node parent was not an Upgrade Menu node!")
             return
         }

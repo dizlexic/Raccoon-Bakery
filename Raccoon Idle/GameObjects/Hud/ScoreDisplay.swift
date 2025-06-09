@@ -95,7 +95,7 @@ class ScoreLabel: SKLabelNode {
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         guard let _ = touches.first else { return }
-        guard let scene = scene as? DemoScene else { return }
+        guard let scene = scene as? GameScene else { return }
         guard let overlay = scene.overlay else { return }
         scene.hud.addChild(overlay)
     }

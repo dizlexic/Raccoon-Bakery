@@ -163,7 +163,7 @@ extension HUD {
     }
 
     func setupPortraits() {
-        guard let scene = parent as? DemoScene else { return }
+        guard let scene = parent as? GameScene else { return }
         for character in scene.characters {
             let portrait = Portrait(size: Constants.ButtonFrameBaseSize)
             portrait.name = "portrait"

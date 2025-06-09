@@ -17,17 +17,13 @@
 		37467FAC2AC0309600FB6FE3 /* BarSprite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37A32F892ABE6EB10004EB7E /* BarSprite.swift */; };
 		37467FAD2AC0309600FB6FE3 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 370C38C52ABD65A400595BF9 /* GameScene.swift */; };
 		37467FAF2AC0309600FB6FE3 /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37A32F902ABEC5F90004EB7E /* Array.swift */; };
-		37467FB02AC0309600FB6FE3 /* MapSprite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 370C38CA2ABD698300595BF9 /* MapSprite.swift */; };
 		37467FB12AC0309600FB6FE3 /* GameData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37A32F942ABEC6590004EB7E /* GameData.swift */; };
 		37467FB22AC0309600FB6FE3 /* Raccoon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37A32F8B2ABE70DD0004EB7E /* Raccoon.swift */; };
-		37467FB32AC0309600FB6FE3 /* Raccom_IdleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 370C38A22ABD4CE600595BF9 /* Raccom_IdleApp.swift */; };
 		37467FB42AC0309600FB6FE3 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 370C38CE2ABD6A8900595BF9 /* Util.swift */; };
 		37467FB52AC0309600FB6FE3 /* TextureManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 370C38C32ABD555700595BF9 /* TextureManager.swift */; };
-		37467FB72AC0309600FB6FE3 /* DemoScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 370C38D42ABD6C4100595BF9 /* DemoScene.swift */; };
 		37467FB82AC0309600FB6FE3 /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 370C38BE2ABD52AC00595BF9 /* Currency.swift */; };
 		37467FB92AC0309600FB6FE3 /* Sprite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 370C38CC2ABD69A000595BF9 /* Sprite.swift */; };
 		37467FBC2AC0309600FB6FE3 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 370C38A92ABD4CE700595BF9 /* Preview Assets.xcassets */; };
-		37467FBD2AC0309600FB6FE3 /* DemoScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 370C38DB2ABD6E8B00595BF9 /* DemoScene.sks */; };
 		37467FBE2AC0309600FB6FE3 /* BackgroundTileset.sks in Resources */ = {isa = PBXBuildFile; fileRef = 370C38D72ABD6E3400595BF9 /* BackgroundTileset.sks */; };
 		37467FBF2AC0309600FB6FE3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 370C38A62ABD4CE700595BF9 /* Assets.xcassets */; };
 		37467FC72AC0395B00FB6FE3 /* CharacterNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37467FC62AC0395B00FB6FE3 /* CharacterNode.swift */; };
@@ -65,7 +61,8 @@
 		37DF97432AD3D75700A70B37 /* UpgradeDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37DF97422AD3D75700A70B37 /* UpgradeDetails.swift */; };
 		37DF97462AD3FC2A00A70B37 /* ManagerData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37DF97452AD3FC2A00A70B37 /* ManagerData.swift */; };
 		37DF97482AD4059200A70B37 /* SharpTexture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37DF97472AD4059200A70B37 /* SharpTexture.swift */; };
-		AA94B47E2AC4FA3200286A0A /* OrganizedScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = AA94B47D2AC4FA3200286A0A /* OrganizedScene.sks */; };
+		65A13C0F2DF740C400C9837E /* IdleAppMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65A13C0E2DF740C400C9837E /* IdleAppMain.swift */; };
+		65A13C112DF7417500C9837E /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 65A13C102DF7417500C9837E /* GameScene.sks */; };
 		AACAD4022AD5F3E8000C4564 /* BigOven.swift in Sources */ = {isa = PBXBuildFile; fileRef = AACAD4012AD5F3E8000C4564 /* BigOven.swift */; };
 		AACAD4042AD5FB97000C4564 /* CookieBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = AACAD4032AD5FB97000C4564 /* CookieBox.swift */; };
 		AAE342472AC390C800163F04 /* StuccoTileset.sks in Resources */ = {isa = PBXBuildFile; fileRef = AAE342452AC390C800163F04 /* StuccoTileset.sks */; };
@@ -76,23 +73,18 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		370C38A22ABD4CE600595BF9 /* Raccom_IdleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Raccom_IdleApp.swift; sourceTree = "<group>"; };
 		370C38A42ABD4CE600595BF9 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		370C38A62ABD4CE700595BF9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		370C38A92ABD4CE700595BF9 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		370C38B02ABD4CE700595BF9 /* Raccom_Idle.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Raccom_Idle.entitlements; sourceTree = "<group>"; };
 		370C38B12ABD4CE700595BF9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		370C38BB2ABD522F00595BF9 /* GameController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameController.swift; sourceTree = "<group>"; };
 		370C38BE2ABD52AC00595BF9 /* Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
 		370C38C32ABD555700595BF9 /* TextureManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextureManager.swift; sourceTree = "<group>"; };
 		370C38C52ABD65A400595BF9 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		370C38C82ABD694300595BF9 /* CameraNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraNode.swift; sourceTree = "<group>"; };
-		370C38CA2ABD698300595BF9 /* MapSprite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapSprite.swift; sourceTree = "<group>"; };
 		370C38CC2ABD69A000595BF9 /* Sprite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sprite.swift; sourceTree = "<group>"; };
 		370C38CE2ABD6A8900595BF9 /* Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
-		370C38D42ABD6C4100595BF9 /* DemoScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoScene.swift; sourceTree = "<group>"; };
 		370C38D72ABD6E3400595BF9 /* BackgroundTileset.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = BackgroundTileset.sks; sourceTree = "<group>"; };
-		370C38DB2ABD6E8B00595BF9 /* DemoScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = DemoScene.sks; sourceTree = "<group>"; };
 		370C39052ABD8B0800595BF9 /* Cookie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cookie.swift; sourceTree = "<group>"; };
 		370C39072ABD8B6F00595BF9 /* ScoreDisplay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreDisplay.swift; sourceTree = "<group>"; };
 		372FE5A32AD5410400127807 /* PurchaseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseButton.swift; sourceTree = "<group>"; };
@@ -138,7 +130,9 @@
 		37DF97422AD3D75700A70B37 /* UpgradeDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpgradeDetails.swift; sourceTree = "<group>"; };
 		37DF97452AD3FC2A00A70B37 /* ManagerData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManagerData.swift; sourceTree = "<group>"; };
 		37DF97472AD4059200A70B37 /* SharpTexture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharpTexture.swift; sourceTree = "<group>"; };
-		AA94B47D2AC4FA3200286A0A /* OrganizedScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = OrganizedScene.sks; sourceTree = "<group>"; };
+		65A13C0D2DF740C400C9837E /* IdleApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = IdleApp.entitlements; sourceTree = "<group>"; };
+		65A13C0E2DF740C400C9837E /* IdleAppMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdleAppMain.swift; sourceTree = "<group>"; };
+		65A13C102DF7417500C9837E /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
 		AACAD4012AD5F3E8000C4564 /* BigOven.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BigOven.swift; sourceTree = "<group>"; };
 		AACAD4032AD5FB97000C4564 /* CookieBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CookieBox.swift; sourceTree = "<group>"; };
 		AAE342452AC390C800163F04 /* StuccoTileset.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = StuccoTileset.sks; sourceTree = "<group>"; };
@@ -187,10 +181,10 @@
 				370C38C72ABD691700595BF9 /* GameObjects */,
 				370C38BA2ABD520200595BF9 /* Models */,
 				370C38B72ABD4D7900595BF9 /* Controllers */,
-				370C38A22ABD4CE600595BF9 /* Raccom_IdleApp.swift */,
 				370C38A42ABD4CE600595BF9 /* ContentView.swift */,
 				370C38A62ABD4CE700595BF9 /* Assets.xcassets */,
-				370C38B02ABD4CE700595BF9 /* Raccom_Idle.entitlements */,
+				65A13C0D2DF740C400C9837E /* IdleApp.entitlements */,
+				65A13C0E2DF740C400C9837E /* IdleAppMain.swift */,
 				370C38B12ABD4CE700595BF9 /* Info.plist */,
 				370C38A82ABD4CE700595BF9 /* Preview Content */,
 			);
@@ -246,7 +240,6 @@
 				370C38CC2ABD69A000595BF9 /* Sprite.swift */,
 				37A32F892ABE6EB10004EB7E /* BarSprite.swift */,
 				370C38C82ABD694300595BF9 /* CameraNode.swift */,
-				370C38CA2ABD698300595BF9 /* MapSprite.swift */,
 				37467FEB2AC72B7E00FB6FE3 /* LoadingOverlay.swift */,
 				37DF97372AC83DC000A70B37 /* PurchaseOverlay.swift */,
 			);
@@ -256,10 +249,8 @@
 		370C38D32ABD6C2D00595BF9 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				65A13C102DF7417500C9837E /* GameScene.sks */,
 				370C38C52ABD65A400595BF9 /* GameScene.swift */,
-				370C38D42ABD6C4100595BF9 /* DemoScene.swift */,
-				370C38DB2ABD6E8B00595BF9 /* DemoScene.sks */,
-				AA94B47D2AC4FA3200286A0A /* OrganizedScene.sks */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -425,7 +416,7 @@
 				LastSwiftUpdateCheck = 1500;
 				LastUpgradeCheck = 1500;
 			};
-			buildConfigurationList = 370C389A2ABD4CE600595BF9 /* Build configuration list for PBXProject "Raccom Idle" */;
+			buildConfigurationList = 370C389A2ABD4CE600595BF9 /* Build configuration list for PBXProject "Raccoon Idle" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -449,11 +440,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				37467FBC2AC0309600FB6FE3 /* Preview Assets.xcassets in Resources */,
-				AA94B47E2AC4FA3200286A0A /* OrganizedScene.sks in Resources */,
 				37467FDD2AC5915500FB6FE3 /* HudMenuAssets.xcassets in Resources */,
-				37467FBD2AC0309600FB6FE3 /* DemoScene.sks in Resources */,
 				37467FBE2AC0309600FB6FE3 /* BackgroundTileset.sks in Resources */,
 				AAE342472AC390C800163F04 /* StuccoTileset.sks in Resources */,
+				65A13C112DF7417500C9837E /* GameScene.sks in Resources */,
 				AAE342482AC390C800163F04 /* Assets.xcassets in Resources */,
 				37467FBF2AC0309600FB6FE3 /* Assets.xcassets in Resources */,
 			);
@@ -466,6 +456,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				65A13C0F2DF740C400C9837E /* IdleAppMain.swift in Sources */,
 				3751E0592ADB810700B6767F /* AppData.xcdatamodeld in Sources */,
 				AAFA823D2AD3817C00FE879F /* ConveyorNode.swift in Sources */,
 				37BAFA7C2AE420770004C1C3 /* UpgradeType.swift in Sources */,
@@ -492,7 +483,6 @@
 				37467FAD2AC0309600FB6FE3 /* GameScene.swift in Sources */,
 				37467FC72AC0395B00FB6FE3 /* CharacterNode.swift in Sources */,
 				37467FAF2AC0309600FB6FE3 /* Array.swift in Sources */,
-				37467FB02AC0309600FB6FE3 /* MapSprite.swift in Sources */,
 				37467FEC2AC72B7E00FB6FE3 /* LoadingOverlay.swift in Sources */,
 				AAFA823F2AD3929500FE879F /* TruckNode.swift in Sources */,
 				AACAD4042AD5FB97000C4564 /* CookieBox.swift in Sources */,
@@ -501,7 +491,6 @@
 				37DF97482AD4059200A70B37 /* SharpTexture.swift in Sources */,
 				3751E05F2ADD2B9000B6767F /* UpgradeStats.swift in Sources */,
 				37467FD92AC55FF500FB6FE3 /* HUD.swift in Sources */,
-				37467FB32AC0309600FB6FE3 /* Raccom_IdleApp.swift in Sources */,
 				37467FB42AC0309600FB6FE3 /* Util.swift in Sources */,
 				37467FE42AC5FD8900FB6FE3 /* UpgradeMenu.swift in Sources */,
 				37467FB52AC0309600FB6FE3 /* TextureManager.swift in Sources */,
@@ -509,7 +498,6 @@
 				37DF973E2AD22DAF00A70B37 /* UpgradeFactory.swift in Sources */,
 				AACAD4022AD5F3E8000C4564 /* BigOven.swift in Sources */,
 				37DF973C2AD22D8C00A70B37 /* UpgradeIcons.swift in Sources */,
-				37467FB72AC0309600FB6FE3 /* DemoScene.swift in Sources */,
 				37467FCD2AC2B7FE00FB6FE3 /* Overlay.swift in Sources */,
 				AAFA823B2AD373A700FE879F /* SimpleAnimation.swift in Sources */,
 				37467FB82AC0309600FB6FE3 /* Currency.swift in Sources */,
@@ -654,7 +642,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = "Raccoon Idle/Raccom_Idle.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "Raccoon Idle/IdleApp.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Raccoon Idle/Preview Content\"";
@@ -686,7 +674,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = "Raccoon Idle/Raccom_Idle.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "Raccoon Idle/IdleApp.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Raccoon Idle/Preview Content\"";
@@ -716,7 +704,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		370C389A2ABD4CE600595BF9 /* Build configuration list for PBXProject "Raccom Idle" */ = {
+		370C389A2ABD4CE600595BF9 /* Build configuration list for PBXProject "Raccoon Idle" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				370C38B22ABD4CE700595BF9 /* Debug */,

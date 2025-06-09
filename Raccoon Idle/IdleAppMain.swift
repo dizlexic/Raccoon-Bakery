@@ -8,7 +8,7 @@
 import SwiftUI
 
 @main
-struct Raccom_IdleApp: App {
+struct IdleAppMain: App {
     @Environment(\.scenePhase) var phase
     let game = GameController.shared
 

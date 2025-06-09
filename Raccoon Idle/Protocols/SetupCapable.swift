@@ -8,7 +8,7 @@
 import Foundation
 
 protocol SetupCapable {
-    typealias SetupMethods = ()->Void
+    typealias SetupMethods = () -> Void
     var isSetup: Bool { get set }
     var setupsToRun: [()->Void] { get set }
     func setup() throws -> Void

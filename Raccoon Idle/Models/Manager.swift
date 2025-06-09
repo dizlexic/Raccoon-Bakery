@@ -26,7 +26,7 @@ class Manager {
     init(name: String, character: GameCharacter? = nil, price: Decimal? = nil, upgrades: [Upgrade]? = nil, owned: Int? = nil) {
         self.id = UUID()
         self.owned = owned ?? 0
-        self.character = character ?? .ManagerRaccom
+        self.character = character ?? .ManagerRaccoon
         if let price = price {
             self.price = Currency(type: .Cookies, amount: price )
         }

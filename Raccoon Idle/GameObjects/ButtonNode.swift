@@ -38,7 +38,7 @@ class ButtonNode: Sprite {
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        guard let touch = touches.first else { return }
+        guard let _ = touches.first else { return }
         touchEnded()
     }
 }

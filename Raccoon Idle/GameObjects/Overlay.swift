@@ -56,7 +56,7 @@ class Overlay: Sprite {
     
     func update() {
         // TODO make this scene agnostic or at least be aware of this
-        if let scene = scene as? DemoScene {
+        if let scene = scene as? GameScene {
             guard let current = scene.hud.childNode(withName: "ScoreDisplay") as? ScoreDisplay else {
                 print("this didn't work :(")
                 return

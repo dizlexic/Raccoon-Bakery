@@ -22,7 +22,7 @@ class Portrait: Sprite {
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        guard let scene = scene as? DemoScene else { return }
+        guard let scene = scene as? GameScene else { return }
         scene.cameraFocus = character
         GameData.shared.updateSelectedManagerByCharacter(character: character)
     }

@@ -92,7 +92,7 @@ class CharacterNode: Sprite {
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        guard let scene = scene as? DemoScene else { return }
+        guard let scene = scene as? GameScene else { return }
         scene.cameraFocus = self as SKSpriteNode
         stand(direction: Direction.allCases.randomElement()!)
     }

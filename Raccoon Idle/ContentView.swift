@@ -26,7 +26,7 @@ struct GameView: UIViewRepresentable {
     var gameConfig: GameConfiguration = GameConfiguration.shared
     func makeUIView(context: Context) -> SKView {
         let skView = SKView()
-        let scene = SKScene(fileNamed: "OrganizedScene")!
+        let scene = SKScene(fileNamed: "GameScene")!
         scene.size = size
         skView.ignoresSiblingOrder = true
         skView.presentScene(scene)
