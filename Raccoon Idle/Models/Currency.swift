@@ -7,10 +7,16 @@
 
 import SpriteKit
 
+/// A class representing a currency in the Raccoon Idle game.
+///
+/// Use this class to manage different currency types, their amounts, and formatting for display.
 final class Currency {
+    /// Defines the denomination levels for a currency.
     enum PlaceValue: Int {
+        /// Represents an invalid or missing denomination.
         case MissingNo = 0, Hundred, Thousand, Million, Billion, Trillion
         
+        /// The display name of the denomination.
         var name: String {
             switch self {
                 case .Hundred: return "Hundred"
@@ -22,10 +28,12 @@ final class Currency {
             }
         }
         
+        /// The exponent value used for calculations.
         var exponent: Decimal {
             pow(1, value * 3)
         }
         
+        /// The integer value of the denomination level.
         var value: Int {
             self.rawValue
         }

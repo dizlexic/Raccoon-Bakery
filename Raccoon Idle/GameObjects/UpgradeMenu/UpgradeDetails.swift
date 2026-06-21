@@ -15,7 +15,7 @@ class UpgradeDetails: SKSpriteNode {
         let canPurchase = GameData.shared.canPurchaseUpgrade(upgrade: upgrade)
 
         super.init(texture: nil,
-                   color: canPurchase ? .magenta : .gray,
+                   color: canPurchase ? DesignTokens.Colors.buttonHighlight : DesignTokens.Colors.buttonDisabled,
                    size: size)
         name = "UpgradeDetails"
         zPosition = Constants.zPositions.UIMenus3
@@ -26,34 +26,34 @@ class UpgradeDetails: SKSpriteNode {
                                 color: .black,
                                 size: Constants.ButtonFrameBaseSize)
         icon.position = .zero
-        icon.position.y += (size.height - icon.size.height) / 2 - Constants.UIPadding
-        icon.position.x -= (size.width - icon.size.width) / 2 - Constants.UIPadding
+        icon.position.y += (size.height - icon.size.height) / 2 - DesignTokens.Spacing.uiPadding
+        icon.position.x -= (size.width - icon.size.width) / 2 - DesignTokens.Spacing.uiPadding
         addChild(icon)
         
         // Name
         let label = SKLabelNode(text: "")
-        label.fontName = "SanFranciscoRounded-Medium"
-        label.fontSize = 24
+        label.fontName = DesignTokens.Fonts.medium
+        label.fontSize = DesignTokens.Fonts.largeSize
         label.position = .zero // Zero is default I just do this for consistency (it's habit)
-        label.position.y += (size.width - label.frame.height) / 2 - label.fontSize - Constants.UIPadding
+        label.position.y += (size.width - label.frame.height) / 2 - label.fontSize - DesignTokens.Spacing.uiPadding
         label.verticalAlignmentMode = .center
         addChild(label)
 
         // price
         let price = SKLabelNode(text: upgrade.adjustedPrice.displayValue)
-        price.fontName = "SanFranciscoRounded-Medium"
-        price.fontSize = 18
+        price.fontName = DesignTokens.Fonts.medium
+        price.fontSize = DesignTokens.Fonts.defaultSize
         price.position = .zero // Zero is default I just do this for consistency (it's habit)
         price.position.y += icon.position.y
-        price.position.x += (size.width - price.frame.width) / 2 - price.fontSize - Constants.UIPadding
+        price.position.x += (size.width - price.frame.width) / 2 - price.fontSize - DesignTokens.Spacing.uiPadding
         price.verticalAlignmentMode = .center
         price.horizontalAlignmentMode = .center
         addChild(price)
         
         // about
         let about = SKLabelNode(text: upgrade.about)
-        about.fontName = "SanFranciscoRounded-Medium"
-        about.fontSize = 18
+        about.fontName = DesignTokens.Fonts.medium
+        about.fontSize = DesignTokens.Fonts.defaultSize
         about.lineBreakMode = .byWordWrapping
         about.preferredMaxLayoutWidth = 300
         about.numberOfLines = 0
@@ -64,7 +64,7 @@ class UpgradeDetails: SKSpriteNode {
         // PurchaseUpgradeButton
         let purchaseSize = CGSize(width: size.width, height: Constants.ButtonFrameBaseSize.height)
         let purchase = SKSpriteNode(texture: nil,
-                                    color: canPurchase ? .green : .gray,
+                                    color: canPurchase ? DesignTokens.Colors.buttonPrimary : DesignTokens.Colors.buttonDisabled,
                                     size: purchaseSize)
         purchase.position = .zero
         purchase.name = "PurchaseUpgrade"
@@ -72,8 +72,8 @@ class UpgradeDetails: SKSpriteNode {
         isUserInteractionEnabled = true
         // PurchaseText
         let purchaseText = SKLabelNode(text: canPurchase ? "Purchase" : "Not enough cookies")
-        purchaseText.fontName = "SanFranciscoRounded-Medium"
-        purchaseText.fontSize = 18
+        purchaseText.fontName = DesignTokens.Fonts.medium
+        purchaseText.fontSize = DesignTokens.Fonts.defaultSize
         purchaseText.numberOfLines = 1
         purchaseText.position = .zero
         purchaseText.verticalAlignmentMode = .center

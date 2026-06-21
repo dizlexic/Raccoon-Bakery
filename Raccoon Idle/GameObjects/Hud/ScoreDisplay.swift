@@ -89,7 +89,7 @@ class ScoreLabel: SKLabelNode {
         let roundingRule = FloatingPointRoundingRule.toNearestOrEven
         let size = CGSize(width: parent.size.width / frame.width, height: parent.size.height / frame.height)
         let scale = min(size.width, size.height).rounded(roundingRule)
-        let fontsize = max(fontSize, 16.0)
+        let fontsize = max(fontSize, 4.0)
         fontSize = fontsize * scale
     }
     

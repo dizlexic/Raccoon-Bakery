@@ -15,13 +15,13 @@ enum GameCharacter: String {
     var string: String {
         self.rawValue
     }
-    
+
     var textureName: String {
         switch self {
-            case .ManagerRaccoon:
-                return "Raccoon"
-            default:
-                return self.string
+        case .ManagerRaccoon:
+            return "Raccoon"
+        default:
+            return self.string
         }
     }
 }
@@ -33,10 +33,13 @@ class GameConfiguration {
     var safeArea: EdgeInsets?
 }
 
+/// Manages the game's data, including managers, currency, upgrades, and persistence.
 @Observable
 class GameData {
+    /// The shared instance of the game data.
     static let shared = GameData()
 
+    /// All available managers in the game.
     let allManagers: [Manager] = [
         Manager(name: "Bakery", price: 50),
         Manager(name: "Factory", price: 50000),
@@ -46,27 +49,36 @@ class GameData {
         Manager(name: "International Shipping", price: 5000000),
         Manager(name: "Cookie University", price: 10000000),
         Manager(name: "Convoy Of Cookies", price: 100000000),
-        Manager(name: "Cookie Grove", price: 500000000),
+        Manager(name: "Cookie Grove", price: 500000000)
     ]
-    
+
     private var cancellables: Set<AnyCancellable> = []
 
     private var perClick: [Currency] = [Currency(type: .Cookies, amount: 1)]
-    
+
+    /// Publisher for updates to the manager wallet.
     let updateManagerPublisher = PassthroughSubject<Wallet?, Never>()
 
+    /// List of managers owned by the player.
     var ownedManagers: [Manager]
 
-    var selectedManager: Manager? = nil
+    /// The manager currently selected by the player.
+    var selectedManager: Manager?
 
-    var updatedAt: Date? = nil
-    
-    var activeOverlay: String? = nil
-    
+    /// The date when the game data was last updated.
+    var updatedAt: Date?
+
+    /// The ID of the currently active overlay, if any.
+    var activeOverlay: String?
+
+    /// Indicates whether the game data is currently loading.
     var isLoading: Bool = true
 
+    /// The player's current wallet.
     var wallet: Wallet
-    var wallStore: Currency? = nil
+    /// Store for wallet currency.
+    var SSSwallStore: Currency?
+    /// List of managers available for frame display.
     var frameList: [Manager] {
         let unowned = allManagers.filter { manager in
             !ownedManagers.contains(where: { owned in
@@ -78,60 +90,59 @@ class GameData {
         }
         return ownedManagers
     }
-    
+
+    /// The current cookies per click (CPC) value.
     var cpc: Currency {
         let base = perClick.first { $0.type == .Cookies } ?? Currency(type: .Cookies)
         let cpc = Currency(from: base)
-        
+
         let upgrades = ownedManagers.flatMap {
             $0.upgrades.filter {
                 $0.type == .CPCAdd || $0.type == .CPCMulti
             }
         }
-        
+
         let addative = upgrades.filter {
             $0.type == .CPCAdd && $0.owned > 0
         }.reduce(Currency(from: CurrencyType.Cookies)) {
             $0.adding(currency: $1.cpcModifier)
         }
-        
+
         print("Computed additives \(addative.amount)")
-        
+
         let multipliers = upgrades.filter {
             $0.type == .CPCMulti && $0.owned > 0
         }.reduce(Currency(type: .Cookies, amount: 0)) {
             $0.adding(currency: $1.cpcModifier.multiplied(by: $1.owned))
         }
-        
+
         print("Computer multipliers \(multipliers.amount)")
-        
+
         cpc += addative
-        
+
         if multipliers.amount > 0 {
             cpc *= multipliers
         }
-        
+
         return cpc
     }
-    
-    
+
     func touchCookie(times: Int = 1) {
         wallet += cpc
     }
-    
-    
+
     func doesOwnManager(named name: String?) -> Bool {
         guard let name = name?.replacingOccurrences(of: "Manager", with: "")
-            .trimmingCharacters(in: .whitespacesAndNewlines)
+                .trimmingCharacters(in: .whitespacesAndNewlines)
         else {
             return true /// if this is nil sure they own nil who doesnt?
-                        /// this is probably a bad way to write this for readability but
-                        /// fuck it :D
+            /// this is probably a bad way to write this for readability but
+            /// fuck it :D
         }
 
         return ownedManagers.contains(where: { $0.name == name })
     }
-    
+
     func getManagerFromCharacter(named name: String?) -> Manager? {
         guard let name = name?.replacingOccurrences(of: "Manager", with: "") else {
             print("Could not find manager by name \(name ?? "")")
@@ -139,31 +150,31 @@ class GameData {
         }
         return getManager(named: name.trimmingCharacters(in: .whitespacesAndNewlines))
     }
-    
+
     func getManager(named name: String?) -> Manager? {
         return allManagers.first(where: {
             $0.name == name
         })
     }
-    
+
     func canPurchaseManager(manager: Manager) -> Bool {
         return wallet >= manager.adjustedPrice
     }
-    
+
     func canPurchaseUpgrade(upgrade: Upgrade) -> Bool {
         return wallet >= upgrade.adjustedPrice
     }
-    
+
     func updateSelectedManagerByCharacter(character: SKSpriteNode?) {
         self.selectedManager = getManagerFromCharacter(named: character?.name)
     }
-    
-//    func getWallet(for currencyType: Currency.CurrencyType) -> Currency? {
-//        wallet.first(where: {
-//            $0.type == currencyType
-//        })
-//    }
-    
+
+    //    func getWallet(for currencyType: Currency.CurrencyType) -> Currency? {
+    //        wallet.first(where: {
+    //            $0.type == currencyType
+    //        })
+    //    }
+
     func purchaseManager(manager: Manager) {
         wallet -= manager.adjustedPrice
         manager.owned += 1
@@ -178,11 +189,11 @@ class GameData {
     func purchaseUpgrade(upgrade: Upgrade, for manager: Manager) {
         guard canPurchaseUpgrade(upgrade: upgrade) else { return }
         wallet -= upgrade.adjustedPrice
-        
+
         manager.addUpgrade(upgrade: upgrade)
         updateManagerPublisher.send(wallet)
     }
-    
+
     func subscribeToOwnedManagerUpdates() {
         for manager in ownedManagers {
             manager.updateTickPublisher
@@ -194,7 +205,7 @@ class GameData {
                 .store(in: &cancellables)
         }
     }
-    
+
     /// returns the Cookies Per Tick in date range
     /// origianlly only returned from start to now
     /// ```
@@ -216,14 +227,13 @@ class GameData {
         NSDecimalRound(&rounded, &cpi, 0, .bankers) // Decimal rounding is weird and scary 2 pointers, remainder, and a mode.
         return Currency(type: .Cookies, amount: rounded)
     }
-    
+
     init() {
         let currencies = CurrencyType.allCases.map(Currency.init)
         wallet = Wallet(currencies: currencies)
         let data = Player.data
         print(data.debugDescription)
-        
+
         ownedManagers = [] // load from CD stack
     }
 }
-

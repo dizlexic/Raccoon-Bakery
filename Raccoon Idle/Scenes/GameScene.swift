@@ -54,28 +54,48 @@ extension GameScene: SetupCapable {
     }
 }
 
+/// The main game scene, responsible for managing the game world, camera, UI, and character interactions.
 class GameScene: SKScene {
     
     typealias Direction = AppType.Direction
+    /// The heads-up display managing UI elements.
     let hud: HUD = HUD()
+    /// Optional label for displaying the score.
     var scoreLabel: ScoreLabel?
+    /// The node representing the interactive cookie element.
     var cookieNode: Cookie?
+    /// The node the camera currently focuses on.
     var cameraFocus: SKSpriteNode?
+    /// Indicates whether the scene is currently scaling.
     var animatingScale: Bool = false
+    /// The current zoom level of the camera.
     var currentScale: CGFloat = 0.50
+    /// List of characters present in the scene.
     var characters: [SKSpriteNode] = []
+    /// The menu overlay, if active.
     var menu: SKSpriteNode? = nil
+    /// The overlay currently displayed, if any.
     var overlay: SKSpriteNode? = nil
+    /// The purchase overlay, if active.
     var purchaseOverlay: SKSpriteNode? = nil
+    /// List of character portraits.
     var portraits: [Portrait] = []
+    /// The upgrade currently selected by the user.
     var selectedUpgrade: Upgrade? = nil
+    /// Indicates whether the scene setup is complete.
     var isSetup: Bool = false
+    /// List of setup methods to be executed.
     var setupsToRun: [SetupMethods] = []
+    /// Overlay displayed during loading states.
     var loadingOverlay: LoadingOverlay
     
+    /// Reference to the shared game data.
     var gameData = GameData.shared
+    /// Reference to the shared game configuration.
     var gameConfig = GameConfiguration.shared
     
+    /// Called when the scene is presented in a view.
+    /// - Parameter view: The SKView displaying the scene.
     override func didMove(to view: SKView) {
         backgroundColor = .purple
         if gameData.ownedManagers.count < 1 {
@@ -112,6 +132,8 @@ class GameScene: SKScene {
 
     }
     
+    /// Updates the scene at each frame.
+    /// - Parameter currentTime: The current timestamp.
     override func update(_ currentTime: TimeInterval) {
         hud.update(timeInterval: currentTime)
         loadingOverlay.update()
@@ -119,6 +141,10 @@ class GameScene: SKScene {
         updateIncome()
     }
     
+    /// Called when touches begin in the scene.
+    /// - Parameters:
+    ///   - touches: The set of touches.
+    ///   - event: The UI event.
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         guard let touch = touches.first else { return }
         let location = touch.location(in: self)
@@ -128,6 +154,8 @@ class GameScene: SKScene {
         }
     }
     
+    /// Moves the raccoon based on the touch location.
+    /// - Parameter location: The location of the touch.
     func moveRaccon(location: CGPoint) {
         if let focus = self.cameraFocus {
             let xCheck = focus.position.x - location.x + focus.size.width / 2
@@ -171,6 +199,10 @@ class GameScene: SKScene {
         }
     }
     
+    /// Called when touches move in the scene.
+    /// - Parameters:
+    ///   - touches: The set of touches.
+    ///   - event: The UI event.
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         guard let touch = touches.first else { return }
 
@@ -182,7 +214,8 @@ class GameScene: SKScene {
         camera.position.x += location.x - previousLocation.x
         camera.position.y += location.y - previousLocation.y
     }
-
+    
+    /// Updates the camera position and zoom level.
     func updateCamera() {
         guard let focus = self.cameraFocus else { return }
         guard let camera = self.camera else { return }
@@ -193,6 +226,8 @@ class GameScene: SKScene {
         }
     }
     
+    /// Presents the purchase overlay for a given manager.
+    /// - Parameter manager: The manager for whom to present the purchase overlay.
     func presentPurchaseOverlay(for manager: Manager) {
         print("presented purchase overlay for manager \(manager.name)")
         let width = min(size.width - 80, 300)
@@ -202,6 +237,7 @@ class GameScene: SKScene {
         self.purchaseOverlay = overlay
     }
     
+    /// Removes the active purchase overlay.
     func removePurchaseOverlay() {
         guard let purchaseOverlay = purchaseOverlay as? PurchaseOverlay else {
             print("no overlay")
@@ -212,17 +248,22 @@ class GameScene: SKScene {
         })
     }
     
+    /// Updates the income for all owned managers.
     func updateIncome() {
         for manager in gameData.ownedManagers {
             manager.update()
         }
     }
     
+    /// Initializes the scene with the given size.
+    /// - Parameter size: The size of the scene.
     override init(size: CGSize) {
         self.loadingOverlay = LoadingOverlay(size: size)
         super.init(size: size)
     }
     
+    /// Initializes the scene from a coder.
+    /// - Parameter aDecoder: The coder.
     required init?(coder aDecoder: NSCoder) {
         self.loadingOverlay = LoadingOverlay(size: .zero)
         super.init(coder: aDecoder)

@@ -61,6 +61,7 @@
 		37DF97432AD3D75700A70B37 /* UpgradeDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37DF97422AD3D75700A70B37 /* UpgradeDetails.swift */; };
 		37DF97462AD3FC2A00A70B37 /* ManagerData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37DF97452AD3FC2A00A70B37 /* ManagerData.swift */; };
 		37DF97482AD4059200A70B37 /* SharpTexture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37DF97472AD4059200A70B37 /* SharpTexture.swift */; };
+		65036B2B2FE898F500D523FA /* DesignTokens.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65036B2A2FE898F400D523FA /* DesignTokens.swift */; };
 		65A13C0F2DF740C400C9837E /* IdleAppMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65A13C0E2DF740C400C9837E /* IdleAppMain.swift */; };
 		65A13C112DF7417500C9837E /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 65A13C102DF7417500C9837E /* GameScene.sks */; };
 		AACAD4022AD5F3E8000C4564 /* BigOven.swift in Sources */ = {isa = PBXBuildFile; fileRef = AACAD4012AD5F3E8000C4564 /* BigOven.swift */; };
@@ -130,6 +131,7 @@
 		37DF97422AD3D75700A70B37 /* UpgradeDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpgradeDetails.swift; sourceTree = "<group>"; };
 		37DF97452AD3FC2A00A70B37 /* ManagerData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManagerData.swift; sourceTree = "<group>"; };
 		37DF97472AD4059200A70B37 /* SharpTexture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharpTexture.swift; sourceTree = "<group>"; };
+		65036B2A2FE898F400D523FA /* DesignTokens.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignTokens.swift; sourceTree = "<group>"; };
 		65A13C0D2DF740C400C9837E /* IdleApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = IdleApp.entitlements; sourceTree = "<group>"; };
 		65A13C0E2DF740C400C9837E /* IdleAppMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdleAppMain.swift; sourceTree = "<group>"; };
 		65A13C102DF7417500C9837E /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -332,6 +334,7 @@
 				37DF973B2AD22D8C00A70B37 /* UpgradeIcons.swift */,
 				37DF97472AD4059200A70B37 /* SharpTexture.swift */,
 				37B01C1F2AD99007004E8387 /* LargeNumberType.swift */,
+				65036B2A2FE898F400D523FA /* DesignTokens.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -487,6 +490,7 @@
 				AAFA823F2AD3929500FE879F /* TruckNode.swift in Sources */,
 				AACAD4042AD5FB97000C4564 /* CookieBox.swift in Sources */,
 				37467FB12AC0309600FB6FE3 /* GameData.swift in Sources */,
+				65036B2B2FE898F500D523FA /* DesignTokens.swift in Sources */,
 				37467FB22AC0309600FB6FE3 /* Raccoon.swift in Sources */,
 				37DF97482AD4059200A70B37 /* SharpTexture.swift in Sources */,
 				3751E05F2ADD2B9000B6767F /* UpgradeStats.swift in Sources */,
@@ -646,7 +650,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Raccoon Idle/Preview Content\"";
-				DEVELOPMENT_TEAM = 2DK3287EQX;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Raccoon Idle/Info.plist";
@@ -678,7 +682,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Raccoon Idle/Preview Content\"";
-				DEVELOPMENT_TEAM = 2DK3287EQX;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Raccoon Idle/Info.plist";
