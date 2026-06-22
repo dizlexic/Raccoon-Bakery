@@ -31,11 +31,11 @@ class UpgradeDetails: SKSpriteNode {
         addChild(icon)
         
         // Name
-        let label = SKLabelNode(text: "")
+        let label = SKLabelNode(text: upgrade.name)
         label.fontName = DesignTokens.Fonts.medium
         label.fontSize = DesignTokens.Fonts.largeSize
         label.position = .zero // Zero is default I just do this for consistency (it's habit)
-        label.position.y += (size.width - label.frame.height) / 2 - label.fontSize - DesignTokens.Spacing.uiPadding
+        label.position.y += (size.height - label.frame.height) / 2 - label.fontSize - DesignTokens.Spacing.uiPadding
         label.verticalAlignmentMode = .center
         addChild(label)
 
@@ -43,11 +43,11 @@ class UpgradeDetails: SKSpriteNode {
         let price = SKLabelNode(text: upgrade.adjustedPrice.displayValue)
         price.fontName = DesignTokens.Fonts.medium
         price.fontSize = DesignTokens.Fonts.defaultSize
-        price.position = .zero // Zero is default I just do this for consistency (it's habit)
-        price.position.y += icon.position.y
-        price.position.x += (size.width - price.frame.width) / 2 - price.fontSize - DesignTokens.Spacing.uiPadding
+        price.position = .zero
+        price.position.y = label.position.y - label.frame.height / 2 - price.fontSize / 2 - DesignTokens.Spacing.uiPadding
+        price.position.x = label.position.x
         price.verticalAlignmentMode = .center
-        price.horizontalAlignmentMode = .center
+        price.horizontalAlignmentMode = .left
         addChild(price)
         
         // about
@@ -55,10 +55,11 @@ class UpgradeDetails: SKSpriteNode {
         about.fontName = DesignTokens.Fonts.medium
         about.fontSize = DesignTokens.Fonts.defaultSize
         about.lineBreakMode = .byWordWrapping
-        about.preferredMaxLayoutWidth = 300
+        about.preferredMaxLayoutWidth = size.width - 2 * DesignTokens.Spacing.uiPadding
         about.numberOfLines = 0
-        about.position = .zero
-        about.verticalAlignmentMode = .center
+        about.position.y = price.position.y - price.frame.height - DesignTokens.Spacing.uiPadding
+        about.position.x = 0 // Align to the center of the menu
+        about.verticalAlignmentMode = .top
         addChild(about)
         
         // PurchaseUpgradeButton

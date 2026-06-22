@@ -68,6 +68,9 @@ class ScoreLabel: SKLabelNode {
         raiseOnUnderflow: false,
         raiseOnDivideByZero: true
     )
+    let baseFontSize: CGFloat = 8.0
+    let minFontSize: CGFloat = 6.0
+    
     var width: Double {
         self.frame.width
     }
@@ -77,8 +80,10 @@ class ScoreLabel: SKLabelNode {
     }
     
     func update(text: String) {
-        self.text = text
-        self.scale()
+        if self.text != text {
+            self.text = text
+            self.scale()
+        }
     }
     
     func scale() {
@@ -86,11 +91,22 @@ class ScoreLabel: SKLabelNode {
             print("Warn: No parent to scale from. This shouldn't be being called.")
             return
         }
+
+        let tempLabel = SKLabelNode(fontNamed: self.fontName)
+        tempLabel.fontSize = baseFontSize
+        tempLabel.text = self.text
+        let naturalWidth = tempLabel.frame.width
+        let naturalHeight = tempLabel.frame.height
+
+        if naturalWidth == 0 || naturalHeight == 0 { return }
+        if parent.size.width == 0 || parent.size.height == 0 { return }
+
         let roundingRule = FloatingPointRoundingRule.toNearestOrEven
-        let size = CGSize(width: parent.size.width / frame.width, height: parent.size.height / frame.height)
-        let scale = min(size.width, size.height).rounded(roundingRule)
-        let fontsize = max(fontSize, 4.0)
-        fontSize = fontsize * scale
+        let scaleX = parent.size.width / naturalWidth
+        let scaleY = parent.size.height / naturalHeight
+        let scale = min(scaleX, scaleY).rounded(roundingRule)
+
+        self.fontSize = max(minFontSize, baseFontSize * scale)
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
